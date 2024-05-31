@@ -1,8 +1,21 @@
-(function (module) {
+
 'use strict';
-var Plugin = {},
-codeRegex = /(?:<pre>(?:.|\n)*?<\/pre>|<code>(?:.|\n)*?<\/code>)/gi,
-colorRegex = /%\((#(?:[A-Fa-f0-9]{3}(?:[A-Fa-f0-9]{3})?)|(?:rgb\(\d{1,3},\d{1,3},\d{1,3}\))|(?:[a-zа-я]){3,})\)\[(.+?)\]/gi;
+
+const Plugin = module.exports;
+
+const codeRegex = /(?:<pre>(?:.|\n)*?<\/pre>|<code>(?:.|\n)*?<\/code>)/gi;
+
+const colorRegex = /%\((#(?:[A-Fa-f0-9]{3}(?:[A-Fa-f0-9]{3})?)|(?:rgb\(\d{1,3},\d{1,3},\d{1,3}\))|(?:[a-zа-я]){3,})\)\[(.+?)\]/gi;
+
+Plugin.registerFormatting = function (payload) {
+	const formatting = [
+		{ name: 'eyedropper', className: 'fa fa-eyedropper', title: 'Color' },
+	];
+
+	payload.options = payload.options.concat(formatting);
+
+	return payload;
+}
 
 Plugin.parse = function (data, callback) {
 	if (data && 'string' === typeof data) {
@@ -46,6 +59,4 @@ function parser (data) {
 	return data;
 }
 
-module.exports = Plugin;
 
-})(module);

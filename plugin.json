@@ -4,19 +4,13 @@
 	"description": "NodeBB Plugin that allows users to use colors in their posts.",
 	"url": "https://github.com/MegaGM/nodebb-plugin-mega-colors",
 	"library": "./library.js",
-	"staticDirs": {
-		"images": "lib/colorpicker/images"
-	},
 	"hooks": [
 		{ "hook": "filter:parse.post", "method": "parse" },
 		{ "hook": "filter:parse.signature", "method": "parse" },
-		{ "hook": "filter:parse.raw", "method": "parse" }
-	],
-	"less": [
-		"lib/colorpicker/css/colorpicker.less"
+		{ "hook": "filter:parse.raw", "method": "parse" },
+		{ "hook": "filter:composer.formatting", "method": "registerFormatting" }
 	],
 	"scripts": [
-		"./button.js",
-		"lib/colorpicker/js/colorpicker.js"
+		"./public/button.js"
 	]
 }
