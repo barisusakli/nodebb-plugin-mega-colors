@@ -1,8 +1,8 @@
 {
-	"id": "nodebb-plugin-mega-colors",
+	"id": "@nodebb/nodebb-plugin-mega-colors",
 	"name": "NodeBB Text Colors Plugin",
 	"description": "NodeBB Plugin that allows users to use colors in their posts.",
-	"url": "https://github.com/MegaGM/nodebb-plugin-mega-colors",
+	"url": "https://github.com/barisusakli/nodebb-plugin-mega-colors",
 	"library": "./library.js",
 	"hooks": [
 		{ "hook": "filter:parse.post", "method": "parse" },
