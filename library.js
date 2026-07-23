@@ -18,12 +18,14 @@ Plugin.registerFormatting = function (payload) {
 }
 
 Plugin.parse = function (data, callback) {
-	if (data && 'string' === typeof data) {
-		data = parser(data);
-	} else if (data.postData && data.postData.content && data.postData.content.match(colorRegex)) {
-		data.postData.content = parser(data.postData.content);
-	} else if (data.userData && data.userData.signature && data.userData.signature.match(colorRegex)) {
-		data.userData.signature = parser(data.userData.signature);
+	if (data) {
+		if ('string' === typeof data) {
+			data = parser(data);
+		} else if (data?.postData?.content?.match(colorRegex)) {
+			data.postData.content = parser(data.postData.content);
+		} else if (data?.userData?.signature?.match(colorRegex)) {
+			data.userData.signature = parser(data.userData.signature);
+		}
 	}
 	callback(null, data);
 };
