@@ -1,6 +1,6 @@
 {
   "name": "@nodebb/nodebb-plugin-mega-colors",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "nbbpm": {
     "compatibility": "^4.x"
   },
